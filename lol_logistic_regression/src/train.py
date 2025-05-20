@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from src.utils import accuracy  # make sure this function thresholds outputs
+from src.utils import accuracy  
 
 def train_model(model, X_train, y_train, X_test, y_test, lr=0.01, weight_decay=0.0, epochs=1000):
     criterion = nn.BCELoss()
@@ -9,7 +9,7 @@ def train_model(model, X_train, y_train, X_test, y_test, lr=0.01, weight_decay=0
 
     for epoch in range(epochs):
         model.train()
-        outputs = model(X_train).view(-1)  # safer than squeeze()
+        outputs = model(X_train).view(-1)  
 
         loss = criterion(outputs, y_train)
 
